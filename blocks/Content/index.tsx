@@ -65,7 +65,7 @@ export const Content: Block = {
                   value: "half",
                 },
                 {
-                  label: "Two thirdg ",
+                  label: "Two third",
                   value: "twoThird",
                 },
                 {
@@ -133,6 +133,7 @@ export const Content: Block = {
               name: "paddingTop",
               label: "Padding Top",
               type: "select",
+              defaultValue: "medium",
               options: [
                 { label: "Small", value: "small" },
                 { label: "Medium", value: "medium" },
@@ -143,6 +144,7 @@ export const Content: Block = {
               name: "paddingBottom",
               label: "Padding Bottom ",
               type: "select",
+              defaultValue: "medium",
               options: [
                 { label: "Small", value: "small" },
                 { label: "Medium", value: "medium" },
