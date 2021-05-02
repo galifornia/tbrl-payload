@@ -17,6 +17,33 @@ export const Content: Block = {
   },
   fields: [
     {
+      name: "backgroundColor",
+      label: "Background Color",
+      type: "radio",
+      defaultValue: "none",
+      admin: {
+        layout: "horizontal",
+      },
+      options: [
+        {
+          label: "Red",
+          value: "red",
+        },
+        {
+          label: "Blue",
+          value: "blue",
+        },
+        {
+          label: "Orange",
+          value: "orange",
+        },
+        {
+          label: "None",
+          value: "none",
+        },
+      ],
+    },
+    {
       name: "columns",
       type: "array",
       minRows: 1,
@@ -38,7 +65,7 @@ export const Content: Block = {
                   value: "half",
                 },
                 {
-                  label: "Two third",
+                  label: "Two thirdg ",
                   value: "twoThird",
                 },
                 {
@@ -78,6 +105,54 @@ export const Content: Block = {
           name: "content",
           type: "richText",
           required: true,
+        },
+        {
+          name: "accentLine",
+          label: "Enable Line Alignment",
+          type: "checkbox",
+          defaultValue: false,
+        },
+        {
+          name: "accentLineAlignment",
+          label: "Accent Line Alignment",
+          type: "radio",
+          defaultValue: "left",
+          options: [
+            { label: "Left", value: "left" },
+            { label: "Right", value: "right" },
+          ],
+          admin: {
+            condition: (_, siblingData) => siblingData.accentLine,
+            layout: "horizontal",
+          },
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "paddingTop",
+              label: "Padding Top",
+              type: "select",
+              options: [
+                { label: "Small", value: "small" },
+                { label: "Medium", value: "medium" },
+                { label: "Large", value: "large" },
+              ],
+            },
+            {
+              name: "paddingBottom",
+              label: "Padding Bottom ",
+              type: "select",
+              options: [
+                { label: "Small", value: "small" },
+                { label: "Medium", value: "medium" },
+                { label: "Large", value: "large" },
+              ],
+            },
+          ],
+          admin: {
+            width: "50%",
+          },
         },
       ],
     },
