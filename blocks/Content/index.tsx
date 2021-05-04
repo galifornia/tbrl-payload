@@ -122,7 +122,7 @@ export const Content: Block = {
             { label: "Right", value: "right" },
           ],
           admin: {
-            condition: (_, siblingData) => siblingData.accentLine,
+            condition: (_, siblingData: any) => siblingData.accentLine,
             layout: "horizontal",
           },
         },
