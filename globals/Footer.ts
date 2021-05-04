@@ -6,7 +6,10 @@ const Footer: GlobalConfig = {
   fields: [
     {
       name: "nav",
-      label: "Navigation",
+      labels: {
+        singular: "Link",
+        plural: "Links",
+      },
       type: "array",
       fields: [link],
     },

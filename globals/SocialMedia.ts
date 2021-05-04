@@ -7,6 +7,10 @@ const SocialMedia: GlobalConfig = {
   fields: [
     {
       name: "socials",
+      labels: {
+        singular: "Link",
+        plural: "Links",
+      },
       type: "array",
       fields: [link],
     },
