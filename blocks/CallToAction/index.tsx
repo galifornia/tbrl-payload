@@ -62,29 +62,29 @@ export const CallToAction: Block = {
 };
 
 export const Component: React.FC<Type> = (props) => {
-  const { content, buttons } = props;
+  const { content, actions } = props;
 
   return (
     <div className={classes.cta}>
       <div className={classes.wrap}>
         <RichText content={content} className={classes.content} />
-        {buttons && (
+        {actions && (
           <ul className={classes.buttons}>
-            {buttons.map((button, i) => (
+            {actions.map((action, i) => (
               <li key={i}>
-                {button.type === "page" && (
-                  <Link href="[...slug]" as={`/${button.page.slug}`}>
-                    <a className={classes.button}>{button.label}</a>
+                {action.type === "page" && (
+                  <Link href="[...slug]" as={`/${action.page.slug}`}>
+                    <a className={classes.button}>{action.label}</a>
                   </Link>
                 )}
-                {button.type === "custom" && (
+                {action.type === "custom" && (
                   <a
                     className={classes.button}
-                    href={button.url}
-                    target={button.newTab ? "_blank" : undefined}
+                    href={action.url}
+                    target={action.newTab ? "_blank" : undefined}
                     rel="noopener noreferrer"
                   >
-                    {button.label}
+                    {action.label}
                   </a>
                 )}
               </li>
