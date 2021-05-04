@@ -3,7 +3,14 @@ import link from "../fields/link";
 
 const SocialMedia: GlobalConfig = {
   slug: "social-media",
-  fields: [],
+
+  fields: [
+    {
+      name: "socials",
+      type: "array",
+      fields: [link],
+    },
+  ],
 };
 
 export default SocialMedia;
