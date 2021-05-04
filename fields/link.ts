@@ -5,15 +5,10 @@ const link: Field = {
   type: "group",
   fields: [
     {
-      name: "label",
-      type: "text",
-      required: true,
-      label: "Label",
-    },
-    {
       name: "type",
       label: "Type",
       type: "radio",
+      defaultValue: "page",
       options: [
         { label: "Custom url", value: "custom" },
         { label: "Page", value: "page" },
@@ -23,23 +18,39 @@ const link: Field = {
       },
     },
     {
-      name: "page",
-      label: "Page to link to",
-      type: "relationship",
-      relationTo: "pages",
-      required: true,
-      admin: {
-        condition: (_, sibling) => sibling?.type === "page",
-      },
-    },
-    {
-      name: "url",
-      label: "Custom URL",
-      type: "text",
-      required: true,
-      admin: {
-        condition: (_, sibling) => sibling?.type === "custom",
-      },
+      type: "row",
+      fields: [
+        {
+          name: "page",
+          label: "Page to link to",
+          type: "relationship",
+          relationTo: "pages",
+          required: true,
+          admin: {
+            condition: (_, sibling) => sibling?.type === "page",
+            width: "50%",
+          },
+        },
+        {
+          name: "url",
+          label: "Custom URL",
+          type: "text",
+          required: true,
+          admin: {
+            condition: (_, sibling) => sibling?.type === "custom",
+            width: "50%",
+          },
+        },
+        {
+          name: "label",
+          type: "text",
+          required: true,
+          label: "Label",
+          admin: {
+            width: "50%",
+          },
+        },
+      ],
     },
   ],
 };
