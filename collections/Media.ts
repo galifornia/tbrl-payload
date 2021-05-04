@@ -1,37 +1,37 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from "payload/types";
 
 export type MediaType = {
-  filename: string
-  alt: string
+  filename: string;
+  alt: string;
   sizes: {
     card?: {
-      filename: string
-      width: number
-      height: number
-    }
+      filename: string;
+      width: number;
+      height: number;
+    };
     feature?: {
-      filename: string
-      width: number
-      height: number
-    }
-  }
-}
+      filename: string;
+      width: number;
+      height: number;
+    };
+  };
+};
 
 const Media: CollectionConfig = {
-  slug: 'media',
+  slug: "media",
   access: {
     read: (): boolean => true, // Everyone can read Media
   },
   upload: {
-    adminThumbnail: 'card',
+    adminThumbnail: "card",
     imageSizes: [
       {
-        name: 'card',
+        name: "card",
         width: 640,
         height: 480,
       },
       {
-        name: 'feature',
+        name: "feature",
         width: 1024,
         height: 576,
       },
@@ -39,9 +39,9 @@ const Media: CollectionConfig = {
   },
   fields: [
     {
-      name: 'alt',
-      label: 'Alt Text',
-      type: 'text',
+      name: "alt",
+      label: "Alt Text",
+      type: "text",
       required: true,
     },
   ],

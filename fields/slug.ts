@@ -1,6 +1,10 @@
 import { Field } from "payload/types";
 import formatSlug from "../utilities/formatSlug";
 
+export type Type = {
+  slug: string;
+};
+
 const slug: Field = {
   name: "slug",
   label: "Slug",

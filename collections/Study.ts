@@ -1,6 +1,22 @@
 import { CollectionConfig } from "payload/types";
-import slug from "../fields/slug";
+import { MediaType } from "../collections/Media";
+import { Type as CategoryType } from "../collections/Category";
+import { Type as MetaType } from "../fields/meta";
+import slug, { Type as SlugType } from "../fields/slug";
 import meta from "../fields/meta";
+
+export type Image = {
+  image: MediaType;
+};
+
+export type Type = {
+  title: string;
+  client: string;
+  featuredImage: Image;
+  slug: SlugType;
+  meta: MetaType;
+  categories: CategoryType;
+};
 
 const Study: CollectionConfig = {
   slug: "studies",
