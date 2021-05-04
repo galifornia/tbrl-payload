@@ -1,5 +1,14 @@
 import { Field } from "payload/types";
 
+export type Type = {
+  type: "custom" | "page";
+  row: {
+    label: string;
+    page?: string;
+    url?: string;
+  };
+};
+
 const link: Field = {
   name: "link",
   type: "group",
