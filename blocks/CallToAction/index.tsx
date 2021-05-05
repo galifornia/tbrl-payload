@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Block } from "payload/types";
 import { Type as Page } from "../../collections/Page";
 import RichText from "../../components/RichText";
-import classes from "./index.module.css";
 import backgroundColor, {
   Type as backgroundColorType,
 } from "../../fields/background-color";
@@ -65,21 +64,20 @@ export const Component: React.FC<Type> = (props) => {
   const { content, actions } = props;
 
   return (
-    <div className={classes.cta}>
-      <div className={classes.wrap}>
-        <RichText content={content} className={classes.content} />
+    <div>
+      <div>
+        <RichText content={content} />
         {actions && (
-          <ul className={classes.buttons}>
+          <ul>
             {actions.map((action, i) => (
               <li key={i}>
                 {action.type === "page" && (
                   <Link href="[...slug]" as={`/${action.page.slug}`}>
-                    <a className={classes.button}>{action.label}</a>
+                    <a>{action.label}</a>
                   </Link>
                 )}
                 {action.type === "custom" && (
                   <a
-                    className={classes.button}
                     href={action.url}
                     target={action.newTab ? "_blank" : undefined}
                     rel="noopener noreferrer"
