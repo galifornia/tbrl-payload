@@ -8,8 +8,8 @@ export const useStyles = createUseStyles({
     html: {
       fontFamily: "system-ui, Heveltica, Arial, sans-serif",
     },
-    app: {
-      height: "100%",
-    },
+  },
+  app: {
+    height: "100%",
   },
 });
