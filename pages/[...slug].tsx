@@ -8,6 +8,7 @@ import Head from "../components/Head";
 import RenderBlocks from "../components/RenderBlocks";
 import { Grid, Cell } from "@faceless-ui/css-grid";
 import GridContainer from "../components/Layout/GridContainer";
+import Template from "../components/Layout/Template";
 
 const {
   publicRuntimeConfig: { SERVER_URL },
@@ -26,7 +27,7 @@ const Page: React.FC<Props> = (props) => {
   }
 
   return (
-    <main>
+    <Template>
       <Head
         title={page.meta?.title || page.title}
         description={page.meta?.description}
@@ -46,11 +47,13 @@ const Page: React.FC<Props> = (props) => {
         )}
       </div>
       <RenderBlocks layout={page.layout} />
-      <Grid>
-        <Cell cols={6}>Fist column</Cell>
-        <Cell cols={6}>Here is some content</Cell>
-      </Grid>
-    </main>
+      <GridContainer>
+        <Grid>
+          <Cell cols={6}>Fist column</Cell>
+          <Cell cols={6}>Here is some content</Cell>
+        </Grid>
+      </GridContainer>
+    </Template>
   );
 };
 

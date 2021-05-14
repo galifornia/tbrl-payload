@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { useStyles } from "../css/app";
+import Header from "../components/Layout/Header";
 import zIndex from "../css/zIndex";
 import { Modal, ModalProvider } from "@faceless-ui/modal";
 import { GridProvider } from "@faceless-ui/css-grid";
@@ -31,6 +32,7 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
               windowInfo={windowInfo}
             >
               <div className={classes.app}>
+                <Header />
                 <Component {...pageProps} />
               </div>
             </GridProvider>
