@@ -14,6 +14,7 @@ export const useStyles = createUseStyles({
       boxSizing: "border-box",
     },
     html: {
+      backgroundColor: colors.antique,
       fontFamily: "system-ui, Heveltica Neue, Helvetica, Arial, sans-serif",
       fontSize: htmlFontSize,
       lineHeight: `${baselinePX}px`,
