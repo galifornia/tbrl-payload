@@ -3,13 +3,8 @@ import type { AppProps } from "next/app";
 import { useStyles } from "../css/app";
 import zIndex from "../css/zIndex";
 import { Modal, ModalProvider } from "@faceless-ui/modal";
-import { GridProvider, Grid, Cell } from "@faceless-ui/css-grid";
-import {
-  WindowInfo,
-  WindowInfoProvider,
-  withWindowInfo,
-  useWindowInfo,
-} from "@faceless-ui/window-info";
+import { GridProvider } from "@faceless-ui/css-grid";
+import { WindowInfo, WindowInfoProvider } from "@faceless-ui/window-info";
 import gridConfig from "../css/grid";
 import breakpoints from "../css/breakpoints";
 
