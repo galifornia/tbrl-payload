@@ -6,6 +6,8 @@ import { Type as PageType } from "../collections/Page";
 import NotFound from "../components/NotFound";
 import Head from "../components/Head";
 import RenderBlocks from "../components/RenderBlocks";
+import { Grid, Cell } from "@faceless-ui/css-grid";
+import GridContainer from "../components/Layout/GridContainer";
 
 const {
   publicRuntimeConfig: { SERVER_URL },
@@ -44,17 +46,10 @@ const Page: React.FC<Props> = (props) => {
         )}
       </div>
       <RenderBlocks layout={page.layout} />
-      <footer>
-        <hr />
-        NextJS + Payload Server Boilerplate made by{" "}
-        <a
-          href="https://payloadcms.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Payload
-        </a>
-      </footer>
+      <Grid>
+        <Cell cols={6}>Fist column</Cell>
+        <Cell cols={6}>Here is some content</Cell>
+      </Grid>
     </main>
   );
 };

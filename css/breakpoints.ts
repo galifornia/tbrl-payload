@@ -4,6 +4,4 @@ export default {
   m: 850,
   l: 1120,
   xl: 1440,
-  xxl: 1680,
-  xxxl: 1920,
 };
