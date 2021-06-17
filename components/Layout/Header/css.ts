@@ -19,6 +19,8 @@ export default createUseStyles({
     height: base(1.5),
     display: "block",
   },
+  menu: {},
+  secondaryNavItem: {},
   menuButton: ({ menuActive }) => ({
     pointerEvents: "all",
     background: colors.gray,

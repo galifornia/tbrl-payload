@@ -1,12 +1,11 @@
 import { Field } from "payload/types";
+import { Type as PageType } from "../collections/Page";
 
 export type Type = {
   type: "custom" | "page";
-  row: {
-    label: string;
-    page?: string;
-    url?: string;
-  };
+  label: string;
+  page?: PageType;
+  url?: string;
 };
 
 const link: Field = {

@@ -1,16 +1,28 @@
 import React, { useEffect } from "react";
-import type { AppProps } from "next/app";
 import { useStyles } from "../css/app";
 import Header from "../components/Layout/Header";
 import zIndex from "../css/zIndex";
-import { Modal, ModalProvider } from "@faceless-ui/modal";
+import { Modal, ModalContainer, ModalProvider } from "@faceless-ui/modal";
 import { GridProvider } from "@faceless-ui/css-grid";
 import { WindowInfo, WindowInfoProvider } from "@faceless-ui/window-info";
 import gridConfig from "../css/grid";
 import breakpoints from "../css/breakpoints";
+import App from "next/app";
+import { Type as MegaMenuType } from "../globals/MegaMenu";
+import { Type as FooterType } from "../globals/Footer";
+import { Type as SocialMediaType } from "../globals/SocialMedia";
 
-const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
+type AppProps = {
+  pageProps: unknown;
+  Component: React.FC<{ footer: FooterType; socialMedia: SocialMediaType }>;
+} & {
+  megaMenu: MegaMenuType;
+  footer: FooterType;
+  socialMedia: SocialMediaType;
+};
+const MyApp = (appProps: AppProps): React.ReactElement => {
   const classes = useStyles();
+  const { Component, pageProps, megaMenu, footer, socialMedia } = appProps;
 
   useEffect(() => {
     const style = document.getElementById("server-side-styles");
@@ -32,15 +44,43 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
               windowInfo={windowInfo}
             >
               <div className={classes.app}>
-                <Header />
-                <Component {...pageProps} />
+                <Header megaMenu={megaMenu} socialMedia={socialMedia} />
+                <Component
+                  {...pageProps}
+                  footer={footer}
+                  socialMedia={socialMedia}
+                />
               </div>
             </GridProvider>
           )}
         </WindowInfo>
+        <ModalContainer />
       </ModalProvider>
     </WindowInfoProvider>
   );
+};
+
+MyApp.getInitialProps = async (appContext) => {
+  const appProps = await App.getInitialProps(appContext);
+
+  const [megaMenu, footer, socialMedia] = await Promise.all([
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/mega-menu`).then(
+      (res) => res.json()
+    ),
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/footer`).then(
+      (res) => res.json()
+    ),
+    fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/social-media`
+    ).then((res) => res.json()),
+  ]);
+
+  return {
+    ...appProps,
+    megaMenu,
+    footer,
+    socialMedia,
+  };
 };
 
 export default MyApp;

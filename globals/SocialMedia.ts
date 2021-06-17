@@ -1,5 +1,11 @@
 import { GlobalConfig } from "payload/types";
-import link from "../fields/link";
+import link, { Type as LinkType } from "../fields/link";
+
+export type Type = {
+  nav: {
+    link: LinkType;
+  }[];
+};
 
 const SocialMedia: GlobalConfig = {
   slug: "social-media",
