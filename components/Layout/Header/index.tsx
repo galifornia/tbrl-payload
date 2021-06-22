@@ -8,6 +8,7 @@ import Link from "next/link";
 import Hamburger from "./Hamburger";
 import { Props } from "./types";
 import GridContainer from "../GridContainer";
+import CMSLink from "../../CMSLink";
 
 type linkType = {
   label: string;
@@ -39,18 +40,22 @@ const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
           <Grid>
             <Cell cols={8} htmlElement="nav">
               {megaMenu?.nav?.map(({ link }: any, i) => (
-                <h3 key={i}>{link.label}</h3>
+                <CMSLink key={i} {...link}>
+                  <h3 key={i}>{link.label}</h3>
+                </CMSLink>
+                //
               ))}
             </Cell>
             <Cell cols={3}>
-              {socialMedia?.nav?.map(({ url, label }: any, i) => (
+              {socialMedia?.socials?.map(({ link }, i) => (
                 <a
+                  key={i}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.secondaryNavItem}
-                  href={url}
+                  href={link?.url}
                 >
-                  {label}
+                  {link.label}
                 </a>
               ))}
             </Cell>

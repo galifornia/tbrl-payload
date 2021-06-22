@@ -2,7 +2,7 @@ import { GlobalConfig } from "payload/types";
 import link, { Type as LinkType } from "../fields/link";
 
 export type Type = {
-  nav: {
+  socials: {
     link: LinkType;
   }[];
 };
