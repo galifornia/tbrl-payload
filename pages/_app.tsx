@@ -63,16 +63,42 @@ const MyApp = (appProps: AppProps): React.ReactElement => {
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
 
+  const username = process.env.USR;
+  const password = process.env.PSS;
+
+  const res = await fetch("http://localhost:3000/api/users/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: username,
+      password: password,
+    }),
+  });
+
+  const json = await res.json();
+  const { token } = json;
+
   const [megaMenu, footer, socialMedia] = await Promise.all([
-    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/mega-menu`).then(
-      (res) => res.json()
-    ),
-    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/footer`).then(
-      (res) => res.json()
-    ),
-    fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/social-media`
-    ).then((res) => res.json()),
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/mega-menu`, {
+      headers: {
+        cookie: `payload-token=${token}`,
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json()),
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/footer`, {
+      headers: {
+        cookie: `payload-token=${token}`,
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json()),
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/social-media`, {
+      headers: {
+        cookie: `payload-token=${token}`,
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json()),
   ]);
 
   return {

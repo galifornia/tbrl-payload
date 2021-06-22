@@ -19,7 +19,7 @@ const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
   const { currentModal, toggle } = useModal();
   const menuActive = currentModal === menuSlug;
   const styles = useStyles({ menuActive });
-  console.log(megaMenu);
+
   return (
     <header className={styles.header}>
       <Link href="/">
