@@ -9,6 +9,8 @@ import Hamburger from "./Hamburger";
 import { Props } from "./types";
 import GridContainer from "../GridContainer";
 import CMSLink from "../../CMSLink";
+import { classicNameResolver } from "typescript";
+import LetsTalk from "../../LetsTalk";
 
 type linkType = {
   label: string;
@@ -63,6 +65,9 @@ const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
             </Cell>
           </Grid>
         </GridContainer>
+        <div className={styles.ctaWrap}>
+          <LetsTalk className={styles.ctaCSS} />
+        </div>
       </Modal>
     </header>
   );

@@ -105,4 +105,31 @@ export default createUseStyles({
     },
   }),
   menuActive: {},
+  ctaWrap: {
+    position: "fixed",
+    right: base(-5),
+    bottom: base(-8),
+    [queries.m]: {
+      display: "block",
+      right: base(-3),
+      bottom: base(-6),
+    },
+    [queries.s]: {
+      right: base(-2),
+      bottom: base(-2),
+      marginBottom: base(-3),
+    },
+  },
+  ctaCSS: {
+    width: `${base(35)} !important`,
+    height: `${base(35)} !important`,
+    [queries.l]: {
+      width: `${base(30)} !important`,
+      height: `${base(30)} !important`,
+    },
+    [queries.m]: {
+      width: `${base(22)} !important`,
+      height: `${base(22)} !important`,
+    },
+  },
 });

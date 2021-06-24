@@ -2,8 +2,8 @@ import { Field } from "payload/types";
 import { Type as PageType } from "../collections/Page";
 
 export type Type = {
-  type: "custom" | "page";
-  label: string;
+  type?: "custom" | "page";
+  label?: string;
   page?: PageType;
   url?: string;
 };

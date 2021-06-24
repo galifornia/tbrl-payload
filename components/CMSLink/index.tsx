@@ -4,9 +4,20 @@ import { Type as LinkType } from "../../fields/link";
 
 type Props = {
   className?: string;
+  href?: string;
+  scroll?: boolean;
+  children?: React.ReactChild;
 } & LinkType;
 
-const CMSLink: React.FC<Props> = ({ type, page, url, children, className }) => {
+const CMSLink: React.FC<Props> = ({
+  type,
+  page,
+  url,
+  href,
+  scroll,
+  children,
+  className,
+}) => {
   const isRelativeURL = url?.indexOf("/") === 0;
 
   if (type === "page" || isRelativeURL) {
@@ -17,7 +28,7 @@ const CMSLink: React.FC<Props> = ({ type, page, url, children, className }) => {
     );
   }
   return (
-    <a href={url} className={className}>
+    <a href={href} className={className}>
       {children}
     </a>
   );
