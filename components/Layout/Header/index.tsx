@@ -40,13 +40,15 @@ const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
           <Grid>
             <Cell cols={8} htmlElement="nav">
               {megaMenu?.nav?.map(({ link }: any, i) => (
-                <CMSLink key={i} {...link}>
-                  <h3 key={i}>{link.label}</h3>
+                <CMSLink className={styles.primaryNavItem} key={i} {...link}>
+                  <h3 key={i} style={{ marginTop: i === 0 ? 0 : undefined }}>
+                    {link.label}
+                  </h3>
                 </CMSLink>
                 //
               ))}
             </Cell>
-            <Cell cols={3}>
+            <Cell cols={3} className={styles.secondaryNav}>
               {socialMedia?.socials?.map(({ link }, i) => (
                 <a
                   key={i}

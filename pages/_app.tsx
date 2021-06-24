@@ -34,7 +34,11 @@ const MyApp = (appProps: AppProps): React.ReactElement => {
 
   return (
     <WindowInfoProvider breakpoints={breakpoints}>
-      <ModalProvider zIndex={zIndex.modal}>
+      <ModalProvider
+        zIndex={zIndex.modal}
+        classPrefix="payload"
+        transTime={400}
+      >
         <WindowInfo>
           {(windowInfo) => (
             <GridProvider
