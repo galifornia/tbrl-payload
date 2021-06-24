@@ -1,12 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Footer from "../Footer/index";
+import { Type as FooterType } from "../../../globals/Footer";
+import { Type as SocialMediaType } from "../../../globals/SocialMedia";
 
-const Template: React.FC = ({ children }) => {
+type Props = {
+  footer: FooterType;
+  socialMedia: SocialMediaType;
+};
+
+const Template: React.FC<Props> = ({ children, footer, socialMedia }) => {
   return (
     <>
       {children}
-      <Footer />
+      <Footer footer={footer} socialMedia={socialMedia} />
     </>
   );
 };

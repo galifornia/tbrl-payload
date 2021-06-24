@@ -9,6 +9,8 @@ import RenderBlocks from "../components/RenderBlocks";
 import { Grid, Cell } from "@faceless-ui/css-grid";
 import GridContainer from "../components/Layout/GridContainer";
 import Template from "../components/Layout/Template";
+import { Type as FooterType } from "../globals/Footer";
+import { Type as SocialMediaType } from "../globals/SocialMedia";
 
 const {
   publicRuntimeConfig: { SERVER_URL },
@@ -16,18 +18,20 @@ const {
 
 export type Props = {
   page?: PageType;
+  footer?: FooterType;
+  socialMedia?: SocialMediaType;
   statusCode: number;
 };
 
 const Page: React.FC<Props> = (props) => {
-  const { page } = props;
+  const { page, footer, socialMedia } = props;
 
   if (!page) {
     return <NotFound />;
   }
 
   return (
-    <Template>
+    <Template footer={footer} socialMedia={socialMedia}>
       <Head
         title={page.meta?.title || page.title}
         description={page.meta?.description}

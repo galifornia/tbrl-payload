@@ -212,14 +212,14 @@ const LetsTalk: React.FC<Props> = ({ className }) => {
       </svg>
 
       <CMSLink href="/contact" scroll={false}>
-        <a
+        <div
           className={classes.link}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           <Arrow color="antique" className={classes.arrow} />
           <h3 className={classes.heading}>Let&apos;s Talk</h3>
-        </a>
+        </div>
       </CMSLink>
     </div>
   );
